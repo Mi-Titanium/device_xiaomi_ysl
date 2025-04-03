@@ -1,0 +1,2 @@
+# Touchscreen
+genfscon proc  /sys/dev/xiaomi_msm8953_touchscreen			u:object_r:sysctl_mi8953_ts:s0
