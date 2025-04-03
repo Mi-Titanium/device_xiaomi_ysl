@@ -26,7 +26,7 @@ fi
 set -e
 
 export DEVICE=ysl
-export DEVICE_COMMON=msm8953-common
+export DEVICE_COMMON=mititanium-common
 export VENDOR=xiaomi
 
 "./../../${VENDOR}/${DEVICE_COMMON}/extract-files.sh" "$@"

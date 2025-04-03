@@ -6,8 +6,8 @@
 
 DEVICE_PATH := device/xiaomi/ysl
 
-# Inherit from common msm8953-common
-include device/xiaomi/msm8953-common/BoardConfigCommon.mk
+# Inherit from common mititanium-common
+include device/xiaomi/mititanium-common/BoardConfigCommon.mk
 
 # Kernel
 TARGET_KERNEL_CONFIG := vendor/msm8953-perf_defconfig
