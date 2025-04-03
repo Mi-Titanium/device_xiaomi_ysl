@@ -15,6 +15,9 @@ TARGET_KERNEL_CONFIG := vendor/msm8953-perf_defconfig
 # Display
 TARGET_SCREEN_DENSITY := 280
 
+# HIDL
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
+
 # Kernel
 TARGET_KERNEL_VERSION := 4.19
 
@@ -35,5 +38,8 @@ TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
 # Security Patch Level
 VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
+
+# SELinux
+BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 
 include vendor/xiaomi/ysl/BoardConfigVendor.mk
