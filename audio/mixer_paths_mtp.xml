@@ -88,7 +88,9 @@
     <ctl name="EAR PA Gain" value="POS_6_DB" />
     <ctl name="EAR PA Gain" value="POS_1P5_DB" />
     <ctl name="EAR PA Boost" value="ENABLE" />
-    <ctl name="MI2S_RX Channels" value="One" />
+    <ctl name="Speaker Boost" value="DISABLE" />
+ 	<ctl name="Speaker PA Open" value="ON" />
+    <ctl name="MI2S_RX Channels" value="Two" />
     <ctl name="MI2S_TX Channels" value="One" />
     <ctl name="PRI_MI2S_RX_DL_HL Switch" value="0" />
     <ctl name="PRI_MI2S_RX_VI_FB_MUX" value="ZERO" />
@@ -290,6 +292,11 @@
         <ctl name="INTERNAL_BT_SCO_RX Audio Mixer MultiMedia1" value="1" />
     </path>
 
+    <path name="deep-buffer-playback speaker">
+        <ctl name="MI2S_RX Channels" value="One" />
+        <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia1" value="1" />
+    </path>
+
     <path name="deep-buffer-playback bt-sco-wb">
         <ctl name="Internal BTSCO SampleRate" value="BTSCO_RATE_16KHZ" />
         <path name="deep-buffer-playback bt-sco" />
@@ -344,6 +351,11 @@
     </path>
 
     <path name="low-latency-playback">
+        <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia5" value="1" />
+    </path>
+
+    <path name="low-latency-playback speaker">
+ 		<ctl name="MI2S_RX Channels" value="One" />
         <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia5" value="1" />
     </path>
 
@@ -474,6 +486,11 @@
     </path>
 
     <path name="compress-offload-playback">
+        <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia4" value="1" />
+    </path>
+
+    <path name="compress-offload-playback speaker">
+ 		<ctl name="MI2S_RX Channels" value="One" />
         <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia4" value="1" />
     </path>
 
@@ -917,6 +934,12 @@
         <ctl name="MI2S_DL_HL Switch" value="1" />
     </path>
 
+    <path name="play-fm speaker">
+        <ctl name="Internal FM RX Volume" value="1" />
+        <ctl name="PRI_MI2S_RX Port Mixer INTERNAL_FM_TX" value="1" />
+        <ctl name="MI2S_DL_HL Switch" value="1" />
+    </path>
+
     <path name="vowlan-call">
         <ctl name="PRI_MI2S_RX_Voice Mixer VoWLAN" value="1" />
         <ctl name="VoWLAN_Tx Mixer TERT_MI2S_TX_VoWLAN" value="1" />
@@ -982,6 +1005,10 @@
     <path name="voicemmode2-call">
         <ctl name="PRI_MI2S_RX_Voice Mixer VoiceMMode2" value="1" />
         <ctl name="VoiceMMode2_Tx Mixer TERT_MI2S_TX_MMode2" value="1" />
+    </path>
+
+        <path name="voicemmode2-call speaker-and-headphones">
+        <path name="voicemmode2-call" />
     </path>
 
     <path name="voicemmode2-call bt-sco">
@@ -1291,8 +1318,10 @@
     </path>
 
     <path name="speaker">
+        <ctl name="Speaker PA Open" value="OFF" />
         <ctl name="RX3 MIX1 INP1" value="RX1" />
-        <ctl name="SPK" value="Switch" />
+        <ctl name="RX3 Digital Volume" value="78" />
+        <ctl name="LINE_OUT" value="Switch" />
     </path>
 
     <path name="speaker-and-hdmi">
@@ -1301,9 +1330,10 @@
     </path>
 
     <path name="wsa-speaker">
-        <ctl name="RX3 MIX1 INP1" value="RX1" />
-        <ctl name="RX3 Digital Volume" value="84" />
-        <ctl name="LINE_OUT" value="Switch" />
+        <ctl name="RX1 MIX1 INP1" value="RX1" />
+        <ctl name="RDAC2 MUX" value="RX1" />
+        <ctl name="RX1 Digital Volume" value="84" />
+        <ctl name="WSA Spk Switch" value="WSA" />
         <ctl name="SpkrMono WSA_RDAC" value="Switch" />
    </path>
 
@@ -1344,13 +1374,40 @@
         <ctl name="IIR1 INP1 MUX" value="DEC1" />
     </path>
 
+    <path name="secondary-mic">
+     	<path name="adc3" />
+    </path>
+
     <path name="headphones">
+        <ctl name="HP ANALOG SWITCH" value="ON" />
         <ctl name="MI2S_RX Channels" value="Two" />
         <ctl name="RX1 MIX1 INP1" value="RX1" />
         <ctl name="RX2 MIX1 INP1" value="RX2" />
+        <ctl name="RX HPH Mode" value="HD2" />
         <ctl name="RDAC2 MUX" value="RX2" />
         <ctl name="HPHL" value="Switch" />
         <ctl name="HPHR" value="Switch" />
+        <ctl name="RX1 Digital Volume" value="81" />
+        <ctl name="RX2 Digital Volume" value="81" />
+    </path>
+
+    <path name="headphones-ce">
+         <path name="headphones" />
+         <ctl name="RX1 Digital Volume" value="72" />
+         <ctl name="RX2 Digital Volume" value="72" />
+    </path>
+
+        <path name="headphones-voice">
+        <ctl name="HP ANALOG SWITCH" value="ON" />
+        <ctl name="MI2S_RX Channels" value="Two" />
+        <ctl name="RX1 MIX1 INP1" value="RX1" />
+        <ctl name="RX2 MIX1 INP1" value="RX2" />
+        <ctl name="RX HPH Mode" value="HD2" />
+        <ctl name="RDAC2 MUX" value="RX2" />
+        <ctl name="HPHL" value="Switch" />
+        <ctl name="HPHR" value="Switch" />
+        <ctl name="RX1 Digital Volume" value="84" />
+        <ctl name="RX2 Digital Volume" value="84" />
     </path>
 
     <path name="headset-mic-default">
@@ -1387,11 +1444,18 @@
 
 
     <path name="voice-handset">
-        <path name="handset" />
+    <!-- Xiaomi changes for ysl start -->
+        <ctl name="Speaker PA Open" value="OFF" />
+        <ctl name="RX3 MIX1 INP1" value="RX1" />
+        <ctl name="RX3 Digital Volume" value="78" />
+        <ctl name="LINE_OUT" value="Switch" />
     </path>
 
     <path name="voice-speaker">
-        <path name="speaker" />
+        <ctl name="Speaker PA Open" value="OFF" />
+        <ctl name="RX3 MIX1 INP1" value="RX1" />
+        <ctl name="RX3 Digital Volume" value="78" />
+        <ctl name="LINE_OUT" value="Switch" />
     </path>
 
     <path name="wsa-voice-speaker">
@@ -1399,7 +1463,10 @@
     </path>
 
     <path name="voice-speaker-mic">
-        <path name="speaker-mic" />
+    <!-- Xiaomi changes for ysl start -->
+    <!-- <path name="speaker-mic" /> -->
+        <path name="adc3" />
+ 	    <ctl name="IIR1 INP1 MUX" value="DEC1" />
     </path>
 
     <path name="voice-headphones">
@@ -1472,6 +1539,10 @@
         <path name="speaker-dmic-endfire" />
     </path>
 
+    <path name="camcorder-dmic">
+        <path name="dmic-endfire" />
+    </path>
+
     <path name="voice-dmic-ef-tmus">
         <path name="dmic-endfire" />
     </path>
@@ -1481,6 +1552,16 @@
     </path>
 
     <path name="voice-speaker-dmic-ef">
+    <!-- Xiaomi changes for ysl start -->
+        <ctl name="ADC1 Volume" value="6" />
+        <ctl name="DEC2 MUX" value="ADC1" />
+        <ctl name="ADC3 Volume" value="6" />
+        <ctl name="DEC1 MUX" value="ADC2" />
+        <ctl name="MI2S_TX Channels" value="Two" />
+        <ctl name="ADC2 MUX" value="INP3" />
+    <!-- Xiaomi changes for ysl end -->
+    </path>
+        <path name="voice-speaker-tmic">
         <path name="dmic-endfire" />
     </path>
 
