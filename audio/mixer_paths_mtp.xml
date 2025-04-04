@@ -1042,10 +1042,6 @@
         <ctl name="VoiceMMode2_Tx Mixer TERT_MI2S_TX_MMode2" value="1" />
     </path>
 
-        <path name="voicemmode2-call speaker-and-headphones">
-        <path name="voicemmode2-call" />
-    </path>
-
     <path name="voicemmode2-call bt-sco">
         <ctl name="INTERNAL_BT_SCO_RX_Voice Mixer VoiceMMode2" value="1" />
         <ctl name="VoiceMMode2_Tx Mixer INT_BT_SCO_TX_MMode2" value="1" />
@@ -1201,7 +1197,7 @@
     <path name="incall-rec-uplink-and-downlink-compress usb-headset-mic">
         <path name="incall-rec-uplink-and-downlink-compress" />
     </path>
-
+<!--
     <path name="incall_music_uplink">
        <ctl name="Incall_Music Audio Mixer MultiMedia2" value="1" />
     </path>
@@ -1240,6 +1236,7 @@
     <path name="incall_music_uplink2 usb-headphones">
         <path name="incall_music_uplink2" />
     </path>
+-->
     <path name="volte-call">
         <ctl name="PRI_MI2S_RX_Voice Mixer VoLTE" value="1" />
         <ctl name="VoLTE_Tx Mixer TERT_MI2S_TX_VoLTE" value="1" />
@@ -1397,7 +1394,11 @@
    </path>
 
     <path name="handset">
-        <path name="handset" />
+        <ctl name="RX1 MIX1 INP1" value="RX1" />
+        <ctl name="RDAC2 MUX" value="RX1" />
+        <ctl name="RX1 Digital Volume" value="84" />
+        <ctl name="EAR PA Gain" value="POS_6_DB" />
+        <ctl name="EAR_S" value="Switch" />
     </path>
 
     <path name="handset-mic">
@@ -1428,6 +1429,12 @@
          <ctl name="RX2 Digital Volume" value="72" />
     </path>
 
+    <path name="headphones-no-ce">
+        <path name="headphones" />
+        <ctl name="RX1 Digital Volume" value="81" />
+        <ctl name="RX2 Digital Volume" value="81" />
+    </path>
+
         <path name="headphones-voice">
         <ctl name="HP ANALOG SWITCH" value="ON" />
         <ctl name="MI2S_RX Channels" value="Two" />
@@ -1450,6 +1457,118 @@
     <path name="headset-mic">
         <path name="headset-mic-default" />
         <ctl name="DEC1 Volume" value="74" />
+    </path>
+
+    <path name="incall_music_uplink">
+        <ctl name="Incall_Music Audio Mixer MultiMedia2" value="1" />
+    </path>
+ 
+    <path name="incall_music_uplink speaker">
+        <path name="incall_music_uplink" />
+    </path>
+ 
+    <path name="incall_music_uplink speaker-protected">
+        <path name="incall_music_uplink" />
+    </path>
+ 
+    <path name="incall_music_uplink receiver">
+        <path name="incall_music_uplink" />
+    </path>
+ 
+    <path name="incall_music_uplink bt-sco">
+        <path name="incall_music_uplink" />
+    </path>
+ 
+    <path name="incall_music_uplink bt-sco-wb">
+        <path name="incall_music_uplink" />
+    </path>
+ 
+    <path name="incall_music_uplink speaker-and-bt-sco">
+        <path name="incall_music_uplink" />
+    </path>
+ 
+    <path name="incall_music_uplink speaker-and-bt-sco-wb">
+        <path name="incall_music_uplink" />
+    </path>
+ 
+    <path name="incall_music_uplink afe-proxy">
+        <path name="incall_music_uplink" />
+    </path>
+ 
+    <path name="incall_music_uplink usb-headphones">
+        <path name="incall_music_uplink" />
+    </path>
+ 
+    <path name="incall_music_uplink usb-headset">
+        <path name="incall_music_uplink" />
+    </path>
+ 
+    <path name="incall_music_uplink speaker-and-usb-headphones">
+        <path name="incall_music_uplink" />
+    </path>
+ 
+    <path name="incall_music_uplink headphones">
+        <path name="incall_music_uplink" />
+    </path>
+ 
+    <path name="incall_music_uplink speaker-and-headphones">
+        <path name="incall_music_uplink" />
+    </path>
+ 
+    <path name="incall_music_uplink2">
+        <ctl name="Incall_Music_2 Audio Mixer MultiMedia2" value="1" />
+    </path>
+ 
+    <path name="incall_music_uplink2 speaker">
+        <path name="incall_music_uplink2" />
+    </path>
+ 
+    <path name="incall_music_uplink2 speaker-protected">
+        <path name="incall_music_uplink2" />
+    </path>
+ 
+    <path name="incall_music_uplink2 receiver">
+        <path name="incall_music_uplink2" />
+    </path>
+ 
+    <path name="incall_music_uplink2 bt-sco">
+        <path name="incall_music_uplink2" />
+    </path>
+ 
+    <path name="incall_music_uplink2 bt-sco-wb">
+        <path name="incall_music_uplink2" />
+    </path>
+ 
+    <path name="incall_music_uplink2 speaker-and-bt-sco">
+        <path name="incall_music_uplink2" />
+    </path>
+ 
+    <path name="incall_music_uplink2 speaker-and-bt-sco-wb">
+        <path name="incall_music_uplink2" />
+    </path>
+ 
+    <path name="incall_music_uplink2 afe-proxy">
+        <path name="incall_music_uplink2" />
+    </path>
+ 
+    <path name="incall_music_uplink2 usb-headphones">
+        <path name="incall_music_uplink2" />
+    </path>
+ 
+    <path name="incall_music_uplink2 usb-headset">
+        <path name="incall_music_uplink2" />
+    </path>
+ 
+    <path name="incall_music_uplink2 speaker-and-usb-headphones">
+        <path name="incall_music_uplink2" />
+    </path>
+ 
+    <path name="incall_music_uplink2 headphones">
+        <path name="incall_music_uplink2" />
+    </path>
+ 
+    <path name="incall_music_uplink2 speaker-and-headphones">
+        <path name="incall_music_uplink2" />
     </path>
 
     <path name="sidetone-iir">
@@ -1475,11 +1594,7 @@
 
 
     <path name="voice-handset">
-    <!-- Xiaomi changes for ysl start -->
-        <ctl name="Speaker PA Open" value="OFF" />
-        <ctl name="RX3 MIX1 INP1" value="RX1" />
-        <ctl name="RX3 Digital Volume" value="78" />
-        <ctl name="LINE_OUT" value="Switch" />
+        <path name="handset" />
     </path>
 
     <path name="voice-speaker">
