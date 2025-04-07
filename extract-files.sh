@@ -21,6 +21,8 @@ function blob_fixup() {
             ;;
         vendor/lib/libarcsoft_high_dynamic_range.so)
             ;&
+        vendor/lib/libts_face_beautify_hal.so)
+            ;&
         vendor/lib/libremosaic_wrapper.so)
             ;&
         vendor/lib/libremosaiclib.so)
