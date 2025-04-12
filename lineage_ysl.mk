@@ -18,6 +18,17 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 # Flags
 TARGET_BOOT_ANIMATION_RES := 720
 
+# Kernel
+TARGET_KERNEL_VERSION := 4.19
+
+# Axion Flags
+AXION_MAINTAINER := RenzAlt
+AXION_PROCESSOR := Titanium_64
+AXION_MODERN_KERNEL := true
+AXION_CAMERA_REAR_INFO := 12,5
+AXION_CAMERA_FRONT_INFO := 16
+WITH_GMS := true
+
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := ysl
 PRODUCT_NAME := lineage_ysl
